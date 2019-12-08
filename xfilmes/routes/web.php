@@ -17,6 +17,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/filmes', 'FilmeController');
-Route::resource('/generos', 'GeneroController');
+Route::resource('filmes', 'FilmeController');
+Route::resource('generos', 'GeneroController');
+Route::resource('clientes', 'ClienteController');
 

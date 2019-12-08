@@ -52,15 +52,17 @@ class FilmeController extends Controller
        $request->validate([
         'titulo'=>'required',
         'ano'=>'required',
-        'genero'=>'required'
+        'genero'=>'required',
+        'status'=>'required'
       ]);
 
-       $filme = new Filmes([
+       $filme = new Filme([
          'titulo'=>$request->get('titulo'),
          'ano'=>$request->get('ano'),
          'duracao'=>$request->get('duracao'),
          'ci'=>$request->get('ci'),
-         'genero_id'=>$request->get('genero')
+         'genero_id'=>$request->get('genero'),
+         'status'=>$request->get('status')
        ]);
        $filme->save();
        return redirect('/filmes')->with('success', 'Filme Adicionado!');
@@ -89,8 +91,8 @@ class FilmeController extends Controller
     public function edit($id)
     {
       if (Auth::check()) {
-       $filme = Filmes::find($id);
-       $generos = Generos::all(['id','genero']);
+       $filme = Filme::find($id);
+       $generos = Genero::all(['id','genero']);
        return view('filmes.edit', compact('filme','generos')); 
      }else{
       return view('welcome')->with('failure','FAÇA LOGIN');
@@ -115,7 +117,7 @@ class FilmeController extends Controller
         'tipo'
       ]);
 
-       $filme = Filmes::find($id);
+       $filme = Filme::find($id);
        $filme->titulo = $request->get('titulo');
        $filme->ano = $request->get('ano');
        $filme->duracao = $request->get('duracao');
@@ -139,7 +141,7 @@ class FilmeController extends Controller
     public function destroy($id)
     {
       if (Auth::check()) {
-       $filme = Filmes::find($id);
+       $filme = Filme::find($id);
        $filme->delete();
        return redirect('/filmes')->with('success', 'Filme Deletado!');
      }else{

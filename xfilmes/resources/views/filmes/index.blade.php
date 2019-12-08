@@ -24,6 +24,7 @@
 					<td>Duração</td>
 					<td>Classificação Indicativa</td>
 					<td>Gênero</td>
+					<td>Status</td>
 					<td colspan = 2>Actions</td>
 				</tr>
 			</thead>
@@ -35,6 +36,7 @@
 					<td>{{$filmes->duracao}}</td>
 					<td>{{$filmes->ci}}</td>
 					<td>{{$filmes->genero_id}}</td>
+					<td>{{$filmes->status}}</td>
 					<td>
 						<a href="{{ route('filmes.edit',$filmes->id)}}" class="btn btn-primary">Edit</a>
 					</td>

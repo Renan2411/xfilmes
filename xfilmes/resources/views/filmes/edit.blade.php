@@ -55,6 +55,14 @@
 							<option value="18">18+</option>
 						</select>
 					</div>
+					
+					<div class="col">
+						<label for="status">Status</label>
+						<select class="form-control" name="status">
+							<option value="Disponível">Disponível</option>
+							<option value="Emprestado">Emprestado</option>
+						</select>
+					</div>
 				</div>
 
 				<div class="form-group"></div>
